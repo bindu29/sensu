@@ -38,7 +38,7 @@ The log directories mapped to the host will fill up very quickly, so it is advis
 | RabbitMQ  | Env configuration file  | ./volumes/rabbitmq/rabbitmq-env.conf | /etc/rabbitmq/rabbitmq-env.conf   |
 | RabbitMQ  | Log directory           | ./volumes/rabbitmq/logs              | /var/log/rabbitmq                 |
 | RabbitMQ  | Server SSL directory    | ./volumes/ssl/server                 | /etc/rabbitmq/ssl                 |
-| Server    | Configuration directory | ./volumes/server/sensu/conf.d        | /etc/sensu/conf.d                 |
+| Server    | Configuration directory | ./volumes/server/conf.d              | /etc/sensu/conf.d                 |
 | Server    | Log directory           | ./volumes/server/logs                | /var/log/sensu                    |
 | Server    | Client SSL directory    | ./volumes/ssl/client                 | /etc/sensu/ssl                    |
 | Uchiwa    | Configuration file      | ./volumes/uchiwa/config.json         | /config/config.json               |

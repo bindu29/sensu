@@ -27,7 +27,7 @@ server:
     - "redis"
     - "rabbitmq"
   volumes:
-    - ./volumes/server/sensu/conf.d:/etc/sensu/conf.d
+    - ./volumes/server/conf.d:/etc/sensu/conf.d
     - ./volumes/server/logs:/var/log/sensu
     - ./volumes/ssl/client:/etc/sensu/ssl
 
