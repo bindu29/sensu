@@ -12,15 +12,15 @@ rabbitmq:
     - "5672:5672"
     - "15672:15672"
   volumes:
-    - ./volumes/rabbitmq/config/rabbitmq-custom.config:/etc/rabbitmq/rabbitmq-custom.config
-    - ./volumes/rabbitmq/config/rabbitmq-env.conf:/etc/rabbitmq/rabbitmq-env.conf
+    - ./volumes/rabbitmq/rabbit.config:/etc/rabbitmq/rabbit.config
+    - ./volumes/rabbitmq/rabbitmq-env.conf:/etc/rabbitmq/rabbitmq-env.conf
     - ./volumes/rabbitmq/logs:/var/log/rabbitmq
     - ./volumes/ssl/server:/etc/rabbitmq/ssl
   environment:
-    - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq-custom
+    - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbit
 
 server:
-  image: groob/sensu #sensu_server
+  image: sensu_server
   ports:
     - "4567:4567"
   links:
