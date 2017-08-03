@@ -1,3 +1,5 @@
+#!/bin/sh
+
 opt=$1
 
 usage () {
