@@ -1,8 +1,5 @@
 .DS_STORE
-.idea/cs.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+.idea
 volumes/graphite/*
 volumes/*/logs
 volumes/redis/lib/store
