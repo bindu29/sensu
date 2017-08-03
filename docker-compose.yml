@@ -1,25 +1,26 @@
 redis:
-  image: sensu_redis
+  image: redis
   ports:
     - "6379:6379"
   volumes:
-    - ./volumes/redis/sensu/conf.d:/etc/sensu/conf.d
     - ./volumes/redis/lib:/var/lib/redis
-    - ./volumes/ssl/client:/etc/sensu/ssl
 
 rabbitmq:
-  image: sensu_rabbitmq
+  image: rabbitmq:3-management
   ports:
     - "5671:5671"
     - "5672:5672"
     - "15672:15672"
   volumes:
-    - ./volumes/rabbitmq/config/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+    - ./volumes/rabbitmq/config/rabbitmq-custom.config:/etc/rabbitmq/rabbitmq-custom.config
+    - ./volumes/rabbitmq/config/rabbitmq-env.conf:/etc/rabbitmq/rabbitmq-env.conf
     - ./volumes/rabbitmq/logs:/var/log/rabbitmq
     - ./volumes/ssl/server:/etc/rabbitmq/ssl
+  environment:
+    - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbitmq-custom
 
 server:
-  image: sensu_server
+  image: groob/sensu #sensu_server
   ports:
     - "4567:4567"
   links:
@@ -31,15 +32,13 @@ server:
     - ./volumes/ssl/client:/etc/sensu/ssl
 
 uchiwa:
-  image: sensu_uchiwa
+  image: uchiwa/uchiwa
   ports:
     - "3000:3000"
   links:
     - "server"
   volumes:
-    - ./volumes/uchiwa/sensu/conf.d:/etc/sensu/conf.d
-    - ./volumes/uchiwa/sensu/uchiwa.json:/etc/sensu/uchiwa.json
-    - ./volumes/ssl/client:/etc/sensu/ssl
+    - ./volumes/uchiwa/config.json:/config/config.json
 
 graphite:
   image: nickstenning/graphite
