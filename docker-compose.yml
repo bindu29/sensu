@@ -58,5 +58,9 @@ grafana:
     - "3030:3000"
   links:
     - graphite
+  volumes:
+   - ./volumes/grafana/plugins:/var/lib/grafana/plugins
+   - ./volumes/grafana/grafana.db:/var/lib/grafana/grafana.db
+   - ./volumes/grafana/logs:/var/log/grafana
   environment:
     - GF_SECURITY_ADMIN_PASSWORD=admin
