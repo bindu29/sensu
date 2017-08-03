@@ -1,0 +1,12 @@
+
+{
+  "checks": {
+    "load": {
+      "command": "check-load.rb -c 5,10,15 -c 3,7,10",
+      "subscribers": [
+        "dev-server"
+      ],
+      "interval": 60
+    }
+  }
+}

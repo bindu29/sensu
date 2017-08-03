@@ -1,0 +1,63 @@
+redis:
+  image: sensu_redis
+  ports:
+    - "6379:6379"
+  volumes:
+    - ./volumes/redis/sensu/conf.d:/etc/sensu/conf.d
+    - ./volumes/redis/lib:/var/lib/redis
+    - ./volumes/ssl/client:/etc/sensu/ssl
+
+rabbitmq:
+  image: sensu_rabbitmq
+  ports:
+    - "5671:5671"
+    - "5672:5672"
+    - "15672:15672"
+  volumes:
+    - ./volumes/rabbitmq/config/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+    - ./volumes/rabbitmq/logs:/var/log/rabbitmq
+    - ./volumes/ssl/server:/etc/rabbitmq/ssl
+
+server:
+  image: sensu_server
+  ports:
+    - "4567:4567"
+  links:
+    - "redis"
+    - "rabbitmq"
+  volumes:
+    - ./volumes/server/sensu/conf.d:/etc/sensu/conf.d
+    - ./volumes/server/logs:/var/log/sensu
+    - ./volumes/ssl/client:/etc/sensu/ssl
+
+uchiwa:
+  image: sensu_uchiwa
+  ports:
+    - "3000:3000"
+  links:
+    - "server"
+  volumes:
+    - ./volumes/uchiwa/sensu/conf.d:/etc/sensu/conf.d
+    - ./volumes/uchiwa/sensu/uchiwa.json:/etc/sensu/uchiwa.json
+    - ./volumes/ssl/client:/etc/sensu/ssl
+
+graphite:
+  image: nickstenning/graphite
+  restart: always
+  ports:
+    - "8080:80"
+    - "2003:2003"
+    - "2004:2004"
+    - "7002:7002"
+  volumes:
+    - ./volumes/graphite:/var/lib/graphite/storage/whisper
+
+grafana:
+  image: grafana/grafana
+  restart: always
+  ports:
+    - "3030:3000"
+  links:
+    - graphite
+  environment:
+    - GF_SECURITY_ADMIN_PASSWORD=admin
