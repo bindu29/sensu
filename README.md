@@ -56,6 +56,6 @@ The log directories mapped to the host will fill up very quickly, so it is advis
 | Uchiwa    | Configuration file      | ./volumes/uchiwa/config.json         | /config/config.json               |
 | Graphite  | Data directory          | ./volumes/graphite                   | /var/lib/graphite/storage/whisper |
 | Grafana   | Plugins directory       | ./volumes/grafana/plugins            | /var/lib/grafana/plugins          |
-| Grafana   | Configuration database  | ./volumes/grafana/grafana.db         | /var/lib/grafana/grafana.db       |
+| Grafana   | Config database         | ./volumes/grafana/grafana.db         | /var/lib/grafana/grafana.db       |
 | Grafana   | Log directory           | ./volumes/grafana/logs               | /var/log/grafana                  |
 
