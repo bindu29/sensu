@@ -9,6 +9,14 @@
 
 ## Defaults
 
+### RabbitMQ
+
+When changing RabbitMQ configurations, you'll want to make sure that the configuration for sensu (rabbitmq.json) reflects the changes made.
+
+- VHost: /sensu
+- User: sensu
+- Password: secret
+
 ### Ports:
 
 | Service                | Port  |
@@ -36,11 +44,3 @@ The log directories mapped to the host will fill up very quickly, so it is advis
 | Uchiwa    | Configuration file      | ./volumes/uchiwa/config.json         | /config/config.json               |
 | Graphite  | Data directory          | ./volumes/graphite                   | /var/lib/graphite/storage/whisper |
 
-
-### RabbitMQ
-
-When changing RabbitMQ configurations, you'll want to make sure that the configuration for sensu (rabbitmq.json) reflects the changes made.
-
-- VHost: /sensu
-- User: sensu
-- Password: secret
