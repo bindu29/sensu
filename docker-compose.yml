@@ -20,7 +20,7 @@ rabbitmq:
     - RABBITMQ_CONFIG_FILE=/etc/rabbitmq/rabbit
 
 server:
-  image: sensu_server
+  image: stevenayers/sensu
   ports:
     - "4567:4567"
   links:

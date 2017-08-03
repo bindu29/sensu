@@ -3,9 +3,12 @@
 #### Docker implementation of Sensu & Grafana, using secure SSL communication between client nodes and RabbitMQ.
 
 ## Installation Guide
-1. Run ./build.sh
-2. Run ./setup_ssl.sh generate
-3. docker-compose up -d
+1. Run ./setup_ssl.sh generate
+2. docker-compose up -d
+
+If you're trying to run this within a secure network, you will need to pull down the images, export them from your workstation, and import them on the network. Please see documentation below:
+https://docs.docker.com/engine/reference/commandline/save/
+https://docs.docker.com/engine/reference/commandline/load/
 
 ## Defaults
 
