@@ -17,8 +17,18 @@ https://docs.docker.com/engine/reference/commandline/load/
 When changing RabbitMQ configurations, you'll want to make sure that the configuration for sensu (rabbitmq.json) reflects the changes made.
 
 - VHost: /sensu
-- User: sensu
+- Username: sensu
 - Password: secret
+
+### Graphite
+
+Username: admin
+Password: admin
+
+### Grafana
+
+Username: admin
+Password: admin
 
 ### Ports:
 
