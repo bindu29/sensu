@@ -19,5 +19,4 @@ Files for Sensu &amp; Grafana in Docker (Distributed)
 | Uchiwa Web Dashboard   | 3000  |
 | Grafana Web Dashboard  | 3030  |
 | Graphite Data UI       | 8080  |
-| RabbitMQ Management UI | 15672 |
 
