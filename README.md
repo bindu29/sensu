@@ -5,7 +5,7 @@ Files for Sensu &amp; Grafana in Docker (Distributed)
 
 ## Installation Guide
 1. Run ./build.sh
-2. Run ./setup-ssl.sh generate
+2. Run ./setup_ssl.sh generate
 3. You will find that inside the docker-compose.yml file:
    - Uchiwa, Sensu + Redis containers all map volumes/ssl/client to /etc/sensu/ssl.
    - RabbitMQ container maps volumes/ssl/server to /etc/rabbitmq/ssl.
