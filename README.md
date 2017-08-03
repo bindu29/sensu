@@ -12,23 +12,22 @@ https://docs.docker.com/engine/reference/commandline/load/
 
 ## Defaults
 
-### RabbitMQ
+### Login Information
 
-When changing RabbitMQ configurations, you'll want to make sure that the configuration for sensu (rabbitmq.json) reflects the changes made.
 
+#### RabbitMQ
+**Note:** When changing RabbitMQ configurations, you'll want to make sure that the configuration for sensu (rabbitmq.json) reflects the changes made.
 - VHost: /sensu
 - Username: sensu
 - Password: secret
 
-### Graphite
+#### Graphite
+- Username: admin
+- Password: admin
 
-Username: admin
-Password: admin
-
-### Grafana
-
-Username: admin
-Password: admin
+#### Grafana
+- Username: admin
+- Password: admin
 
 ### Ports:
 
