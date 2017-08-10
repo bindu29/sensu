@@ -4,3 +4,4 @@ volumes/graphite/*
 volumes/*/logs
 volumes/redis/lib/store
 volumes/ssl
+volumes/grafana/mysql
