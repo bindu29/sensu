@@ -24,8 +24,8 @@ server:
   ports:
     - "4567:4567"
   links:
-    - "redis"
-    - "rabbitmq"
+    - redis
+    - rabbitmq
   volumes:
     - ./volumes/server/conf.d:/etc/sensu/conf.d
     - ./volumes/server/logs:/var/log/sensu
@@ -36,7 +36,7 @@ uchiwa:
   ports:
     - "3000:3000"
   links:
-    - "server"
+    - server
   volumes:
     - ./volumes/uchiwa/config.json:/config/config.json
 
@@ -51,6 +51,16 @@ graphite:
   volumes:
     - ./volumes/graphite:/var/lib/graphite/storage/whisper
 
+grafana_mysql:
+  image: mysql
+  restart: always
+  ports:
+    - "3306:3306"
+  volumes:
+    - ./volumes/grafana/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=secret
+
 grafana:
   image: grafana/grafana
   restart: always
@@ -58,8 +68,11 @@ grafana:
     - "3030:3000"
   links:
     - graphite
+    - grafana_mysql
   volumes:
-   - ./volumes/grafana:/var/lib/grafana
+   - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
+   - ./volumes/grafana/plugins:/var/lib/grafana/plugins
    - ./volumes/grafana/logs:/var/log/grafana
   environment:
     - GF_SECURITY_ADMIN_PASSWORD=admin
+
