@@ -55,7 +55,7 @@ The log directories mapped to the host will fill up very quickly, so it is advis
 | Server    | Client SSL directory    | ./volumes/ssl/client                 | /etc/sensu/ssl                    |
 | Uchiwa    | Configuration file      | ./volumes/uchiwa/config.json         | /config/config.json               |
 | Graphite  | Data directory          | ./volumes/graphite                   | /var/lib/graphite/storage/whisper |
-| Grafana   | Plugins & Database      | ./volumes/grafana/                   | /var/lib/grafana/                 |
+| Grafana   | Plugins                 | ./volumes/grafana                    | /var/lib/grafana/                 |
 | Grafana   | Log directory           | ./volumes/grafana/logs               | /var/log/grafana                  |
 | Grafana DB| DB directory            | ./volumes/grafana/mysql              | /var/lib/mysql                    |
 
