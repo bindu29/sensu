@@ -14,8 +14,8 @@ clean () {
 generate () {
     clean
     mkdir -p volumes/ssl/client volumes/ssl/server
-    cd volumes/ssl
     cp sensu_ssl_tool.tar volumes/ssl/
+    cd volumes/ssl
     tar -xvf sensu_ssl_tool.tar
     cd sensu_ssl_tool
     bash ./ssl_certs.sh generate
